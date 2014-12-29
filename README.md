@@ -9,10 +9,13 @@ this small module inspects your routes and generates a hulken requests file auto
 ##Usage
 ```
 var Hapi = require('hapi');
-var server = new Hapi.Server(3000);
+var server = new Hapi.Server();
+server.connection({ port: 8686});
 
 
-// do this after setting up your routes
+// SET UP ROUTES HERE
+
+
 var hulkentInformant = require('hulken_informant_hapi8');
  hulkenInformant.generateHulkenRequestsFile(‘./hulkenRequestsFile.json’, server);
 ```
