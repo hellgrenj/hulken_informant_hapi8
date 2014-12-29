@@ -1,6 +1,6 @@
 {
   "name": "hulken_informant_hapi8",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "an informant for the stress test tool hulken (works with hapi.js 8)",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,6 @@
   "dependencies": {
     "colors": "^1.0.3"
   },
-  "readme": "hulken_informant_hapi\n=========================\n\nan informant for the stress test tool [hulken](https://github.com/hellgrenj/hulken) (works with hapi.js 7).  \nthis small module inspects your routes and generates a hulken requests file automatically.\n\n##Installation\n`npm install hulken_informant_hapi --save`\n##Usage\n```\nvar Hapi = require('hapi');\nvar server = new Hapi.Server(3000);\n.\n.\n.\n.\n// do this after setting up your routes\nvar hulkentInformant = require('hulken_informant_hapi');\n hulkenInformant.generateHulkenRequestsFile(‘./hulkenRequestsFile.json’, server);\n```\nan hulken_informant offers a quick and simple way to create a stress test suite by inspecting your application routes and auto generating the requests file for you!\n\nIt has, however, it’s drawbacks:\n* It can only include GETs (it has no way of figuring out what payload to send with the POST etc.)\n* It can not offer an expectedTextToExist value for each request, leaving Hulken with only the HTTP status code to rely on when verifying responses.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/hellgrenj/hulken_informant_hapi8/issues"
