@@ -1,7 +1,8 @@
 var fs = require('fs');
 var colors = require('colors');
 
-exports.generateHulkenRequestsFile = function(path, server) {
+exports.generateHulkenRequestsFile = function(path, server, silentOnSuccess) {
+
   try {
     var hulken_requests = [];
     var tableCollection = server.table();
@@ -20,19 +21,20 @@ exports.generateHulkenRequestsFile = function(path, server) {
 
     fs.writeFile(path, JSON.stringify(
       hulken_requests), function(err) {
-        if (err) {
-          hulkenInformantFailed(err);
-        } else {
+      if (err) {
+        hulkenInformantFailed(err);
+      } else {
+        if (!silentOnSuccess) {
           console.log(
             'HulkenInformant created ' + path);
-          }
-        });
-      } catch (err) {
-        hulkenInformantFailed(err);
+        }
       }
-    };
+    });
+  } catch (err) {
+    hulkenInformantFailed(err);
+  }
+};
 
-    function hulkenInformantFailed(err) {
-      console.log('HulkenInformant failed: '.red + err.toString().red);
-    }
-    
+function hulkenInformantFailed(err) {
+  console.log('HulkenInformant failed: '.red + err.toString().red);
+}
