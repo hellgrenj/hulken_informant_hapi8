@@ -18,7 +18,7 @@ server.connection({ port: 8686});
 // SET UP ROUTES HERE
 
 
-var hulkentInformant = require('hulken_informant_hapi8');
+var hulkenInformant = require('hulken_informant_hapi8');
  hulkenInformant.generateHulkenRequestsFile(‘./hulkenRequestsFile.json’, server);
 ```
 an hulken_informant offers a quick and simple way to create a stress test suite by inspecting your application routes and auto generating the requests file for you!

@@ -1,6 +1,6 @@
 {
   "name": "hulken_informant_hapi8",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "an informant for the stress test tool hulken (works with hapi.js 8)",
   "main": "index.js",
   "scripts": {
